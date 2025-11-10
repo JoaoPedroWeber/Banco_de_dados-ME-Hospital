@@ -156,3 +156,103 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-10-13 21:10:09
+
+DROP TABLE IF EXISTS `exame`;
+
+CREATE TABLE `exame`(
+  `id_exame` int NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) DEFAULT NULL,
+  `valor_exame` float DEFAULT NULL,
+  `fk_exame_paciente` int DEFAULT NULL,
+  `fk_exame_medico` int DEFAULT NULL,
+  `fk_exame_agendamento` int DEFAULT NULL,
+  PRIMARY KEY (`id_exame`),
+  UNIQUE KEY `fk_exame_paciente_UNIQUE` (`fk_exame_paciente`),
+  UNIQUE KEY `fk_exame_medico_UNIQUE` (`fk_exame_medico`),
+  UNIQUE KEY `fk_exame_agendamento_UNIQUE` (`fk_exame_agendamento`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `exame` WRITE;
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `medicamento`;
+
+CREATE TABLE `medicamento`(
+  `id_medicamento` int NOT NULL AUTO_INCREMENT,
+  `nome_comercial` varchar(45) NOT NULL,
+  `nome_generico` varchar(45) DEFAULT NULL,
+  `validade` int DEFAULT NULL,
+  `quantidade` int DEFAULT NULL,
+  `unidade_medica` varchar(45) DEFAULT NULL,
+  `fk_medicamento_paciente` int DEFAULT NULL,
+  `fk_medicamento_medico` int DEFAULT NULL,
+  PRIMARY KEY(`id_medicamento`),
+  UNIQUE `nome_comercial_UNIQUE` (`nome_comercial`),
+  UNIQUE `fk_medicamento_paciente_UNIQUE` (`fk_medicamento_paciente`),
+  UNIQUE `fk_medicamento_medico_UNIQUE` (`fk_medicamento_medico`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `medicamento` WRITE; 
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `quarto`;
+
+CREATE TABLE `quarto`(
+  `id_quarto` int NOT NULL AUTO_INCREMENT,
+  `capacidade` int DEFAULT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
+  `fk_quarto_departamento` int DEFAULT NULL,
+  PRIMARY KEY(`id_quarto`),
+  UNIQUE `fk_quarto_departamento_UNIQUE` (`fk_quarto_departamento`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `quarto` WRITE;
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `departamento`;
+
+CREATE TABLE `departamento`(
+  `id_departamento` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `chefe_departamento` varchar(45) DEFAULT NULL,
+  `localizacao` int DEFAULT NULL,
+  `fk_departamento_id_hospital` int DEFAULT NULL,
+  UNIQUE `telefone_UNIQUE` (`telefone`),
+  UNIQUE `chefe_departamento` (`chefe_departamento`),
+  UNIQUE `fk_departamento_id_hospital_UNIQUE` (`id_hospital`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `departamento` WRITE;
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `funcionario`;
+
+CREATE TABLE `funcionario`(
+  `id_funcionario` int NOT NULL AUTO_INCREMENT,
+  `nome_funcionario` varchar(45) DEFAULT NULL,
+  `sexo_funcionario` char DEFAULT NULL,
+  `salario` float DEFAULT NULL,
+  `cpf_fucionario` varchar(45) DEFAULT NULL,
+  `carga_horaria_semanal` int DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `fk_funcionario_id_departamento` int DEFAULT NULL,
+  UNIQUE `cpf_funcionario_UNIQUE` (`cpf_funcionario`),
+  UNIQUE `telefone_UNIQUE` (`telefone`),
+  UNIQUE `fk_funcionario_id_departamento_UNIQUE` (`fk_funcionario_id_departamento`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `funcionario` WRITE;
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `enfermeiro`;
+
+CREATE TABLE `enfermeiro`(
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
