@@ -273,5 +273,78 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `hospital`;
 
 CREATE TABLE `hospital`(
-
+  `id_hospital` INT NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `endereco` varchar(45) DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `horario_funcionamento` varchar(45) DEFAULT NULL,
+  `cnpj` varchar(45) DEFAULT NULL,
+  PRIMARY KEY(`id_hospital`),
+  UNIQUE `endereco_UNIQUE` (`endereco`),
+  UNIQUE `cnpj_UNIQUE` (`cnpj`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `hospital` WRITE;
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `fornecedor`;
+
+CREATE TABLE `fornecedor`(
+  `id_fornecedor` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `endereco` varchar(45) DEFAULT NULL,
+  `cnpj` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_fornecedor`),
+  UNIQUE `telefone_UNIQUE` (`telefone`),
+  UNIQUE `endereco_UNIQUE` (`endereco`),
+  UNIQUE `cnpj_UNIQUE` (`cnpj`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `fornecedor` WRITE;
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `equipamento`;
+
+CREATE TABLE `equipamento`(
+  `id_equipamento` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
+  `preco` float DEFAULT NULL,
+  `fabricante` varchar(45) DEFAULT NULL,
+  `vida_util_anos` varchar(45) DEFAULT NULL,
+  `fk_equipamento_id_fornecedor` int DEFAULT NULL,
+  `fk_equipamento_id_departamento` int DEFAULT NULL
+  PRIMARY KEY (`id_equipamento`),
+  UNIQUE `fk_equipamento_id_fornecedor_UNIQUE` (`fk_equipamento_id_fornecedor`),
+  UNIQUE `fk_equipamento_id_departamento_UNIQUE` (`fk_equipamento_id_departamento`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `equipamento` WRITE
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `medico`;
+
+CREATE TABLE `medico`(
+  `id_medico` int NOT NULL AUTO_INCREMENT,
+  `crm` int DEFAULT NULL,
+  `estado_crm` varchar(45) DEFAULT NULL,
+  `especialidade` varchar(45) DEFAULT NULL,
+  `fk_medico_id_cirurgia` int DEFAULT NULL,
+  `fk_medico_id_consulta` int DEFAULT NULL,
+  `fk_medico_id_medicamento` int DEFAULT NULL,
+  `fk_medico_id_exame` int DEFAULT NULL,
+  PRIMARY KEY (`id_medico`),
+  UNIQUE `crm_UNIQUE` (`crm`),
+  UNIQUE `fk_medico_id_cirurgia_UNIQUE` (`fk_medico_id_cirurgia`),
+  UNIQUE `fk_medico_id_consulta_UNIQUE` (`fk_medico_id_consulta`),
+  UNIQUE `fk_medico_id_medicamento_UNIQUE` (`fk_medico_id_medicamento`),
+  UNIQUE `fk_medico_id_exame_UNIQUE` (`fk_medico_id_exame`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `medico` WRITE;
+
+UNLOCK TABLES;
