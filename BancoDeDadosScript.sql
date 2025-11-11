@@ -222,6 +222,7 @@ CREATE TABLE `departamento`(
   `chefe_departamento` varchar(45) DEFAULT NULL,
   `localizacao` int DEFAULT NULL,
   `fk_departamento_id_hospital` int DEFAULT NULL,
+  PRIMARY KEY (`id_departamento`),
   UNIQUE `telefone_UNIQUE` (`telefone`),
   UNIQUE `chefe_departamento` (`chefe_departamento`),
   UNIQUE `fk_departamento_id_hospital_UNIQUE` (`id_hospital`)
@@ -242,6 +243,7 @@ CREATE TABLE `funcionario`(
   `carga_horaria_semanal` int DEFAULT NULL,
   `telefone` varchar(45) DEFAULT NULL,
   `fk_funcionario_id_departamento` int DEFAULT NULL,
+  PRIMARY KEY (`id_funcionario`),
   UNIQUE `cpf_funcionario_UNIQUE` (`cpf_funcionario`),
   UNIQUE `telefone_UNIQUE` (`telefone`),
   UNIQUE `fk_funcionario_id_departamento_UNIQUE` (`fk_funcionario_id_departamento`)
@@ -254,5 +256,22 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `enfermeiro`;
 
 CREATE TABLE `enfermeiro`(
+  `id_enfermeiro` int NOT NULL AUTO_INCREMENT,
+  `coren` int DEFAULT NULL,
+  `estado_coren` varchar(45) DEFAULT NULL,
+  `cargo` varchar(45) DEFAULT NULL,
+  `fk_enfermeiro_id_cirurgia` int DEFAULT NULL,
+  PRIMARY KEY (`id_enfermeiro`),
+  UNIQUE `coren_UNIQUE` (`coren`),
+  UNIQUE `fk_enfermeiro_id_cirurgia_UNIQUE` (`fk_enfermeiro_id_cirurgia`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `enfermeiro` WRITE;
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `hospital`;
+
+CREATE TABLE `hospital`(
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
