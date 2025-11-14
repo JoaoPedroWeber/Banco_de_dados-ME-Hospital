@@ -113,6 +113,7 @@ DROP TABLE IF EXISTS `enfermeiro`;
 
 CREATE TABLE `enfermeiro` (
   `id_enfermeiro` INT NOT NULL AUTO_INCREMENT,
+  `nome_enfermeiro` VARCHAR(45) DEFAULT NULL,
   `coren` INT DEFAULT NULL,
   `estado_coren` VARCHAR(45) DEFAULT NULL,
   `cargo` VARCHAR(45) DEFAULT NULL,
@@ -128,6 +129,7 @@ DROP TABLE IF EXISTS `medico`;
 
 CREATE TABLE `medico` (
   `id_medico` INT NOT NULL AUTO_INCREMENT,
+  `nome_medico` VARCHAR(45) DEFAULT NULL,
   `crm` INT DEFAULT NULL,
   `estado_crm` VARCHAR(45) DEFAULT NULL,
   `especialidade` VARCHAR(45) DEFAULT NULL,

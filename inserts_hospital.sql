@@ -266,39 +266,41 @@ INSERT INTO funcionario (nome_funcionario,sexo_funcionario,salario,cpf_funcionar
   ('Bruno Oliveira','M',7261,'79907726257',42,'(31) 91022-2158',4),
   ('João Nascimento','M',3929,'64989319508',41,'(31) 96963-1844',1);
 
-INSERT INTO enfermeiro (coren,estado_coren,cargo) VALUES
-  (550194,'MG','Técnico de Enfermagem'),
-  (560994,'MG','Enfermeiro Chefe'),
-  (547916,'MG','Técnico de Enfermagem'),
-  (522972,'MG','Enfermeiro Chefe'),
-  (573499,'MG','Enfermeiro Chefe'),
-  (518141,'MG','Técnico de Enfermagem'),
-  (531278,'MG','Enfermeiro Chefe'),
-  (585070,'MG','Técnico de Enfermagem'),
-  (596649,'MG','Enfermeiro Chefe'),
-  (598719,'MG','Enfermeiro Chefe'),
-  (542003,'MG','Técnico de Enfermagem'),
-  (535043,'MG','Técnico de Enfermagem'),
-  (536325,'MG','Enfermeiro Chefe'),
-  (508305,'MG','Técnico de Enfermagem'),
-  (545249,'MG','Técnico de Enfermagem'),
-  (563730,'MG','Enfermeiro Chefe'),
-  (561625,'MG','Técnico de Enfermagem'),
-  (559241,'MG','Técnico de Enfermagem'),
-  (588251,'MG','Enfermeiro Chefe'),
-  (524687,'MG','Técnico de Enfermagem');
+INSERT INTO enfermeiro (nome_enfermeiro, coren, estado_coren, cargo) VALUES
+  ('Mariana Alves', 550194, 'MG', 'Técnico de Enfermagem'),
+  ('Paulo Henrique Duarte', 560994, 'MG', 'Enfermeiro Chefe'),
+  ('Renata Martins', 547916, 'MG', 'Técnico de Enfermagem'),
+  ('Lucas Ferreira', 522972, 'MG', 'Enfermeiro Chefe'),
+  ('Carla Oliveira', 573499, 'MG', 'Enfermeiro Chefe'),
+  ('Thiago Nascimento', 518141, 'MG', 'Técnico de Enfermagem'),
+  ('Fernanda Castro', 531278, 'MG', 'Enfermeiro Chefe'),
+  ('João Pedro Ramos', 585070, 'MG', 'Técnico de Enfermagem'),
+  ('Camila Andrade', 596649, 'MG', 'Enfermeiro Chefe'),
+  ('Matheus Figueiredo', 598719, 'MG', 'Enfermeiro Chefe'),
+  ('Patrícia Moura', 542003, 'MG', 'Técnico de Enfermagem'),
+  ('Guilherme Azevedo', 535043, 'MG', 'Técnico de Enfermagem'),
+  ('Bruna Carvalho', 536325, 'MG', 'Enfermeiro Chefe'),
+  ('Eduardo Barbosa', 508305, 'MG', 'Técnico de Enfermagem'),
+  ('Larissa Couto', 545249, 'MG', 'Técnico de Enfermagem'),
+  ('Marcelo Santos', 563730, 'MG', 'Enfermeiro Chefe'),
+  ('Isabela Duarte', 561625, 'MG', 'Técnico de Enfermagem'),
+  ('Rafael Pires', 559241, 'MG', 'Técnico de Enfermagem'),
+  ('Tatiane Rocha', 588251, 'MG', 'Enfermeiro Chefe'),
+  ('Daniel Moreira', 524687, 'MG', 'Técnico de Enfermagem');
 
-INSERT INTO medico (crm,estado_crm,especialidade) VALUES
-  (111443,'MG','Cardiologia'),
-  (110508,'MG','Neurologia'),
-  (151207,'MG','Ortopedia'),
-  (123437,'MG','Oncologia'),
-  (137797,'MG','Pediatria'),
-  (110085,'MG','Dermatologia'),
-  (114334,'MG','Ginecologia'),
-  (121596,'MG','Cirurgia Geral'),
-  (136168,'MG','Urologia'),
-  (114683,'MG','Endocrinologia');
+
+INSERT INTO medico (nome_medico, crm, estado_crm, especialidade) VALUES
+  ('Dr. André Lima', 111443, 'MG', 'Cardiologia'),
+  ('Dr. Gustavo Pereira', 110508, 'MG', 'Neurologia'),
+  ('Dr. Henrique Souza', 151207, 'MG', 'Ortopedia'),
+  ('Dra. Juliana Ramos', 123437, 'MG', 'Oncologia'),
+  ('Dra. Fernanda Teixeira', 137797, 'MG', 'Pediatria'),
+  ('Dr. Bruno Carvalho', 110085, 'MG', 'Dermatologia'),
+  ('Dra. Camila Duarte', 114334, 'MG', 'Ginecologia'),
+  ('Dr. Marcelo Antunes', 121596, 'MG', 'Cirurgia Geral'),
+  ('Dr. Rafael Fonseca', 136168, 'MG', 'Urologia'),
+  ('Dra. Ana Beatriz Nunes', 114683, 'MG', 'Endocrinologia');
+
 
 INSERT INTO fornecedor (nome,telefone,endereco,cnpj) VALUES
   ('Julia Andrade','(31) 93465-4346','Rua 534, Centro','90.123.400/0001-63'),
